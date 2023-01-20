@@ -1,0 +1,45 @@
+<div id="animated-text">
+  <span>3</span>
+  <span>D</span>
+  <span>A</span>
+  <span>N</span>
+  <span>I</span>
+  <span>M</span>
+  <span>A</span>
+  <span>T</span>
+  <span>I</span>
+  <span>O</span>
+  <span>N</span>
+</div>
+
+
+#animated-text {
+  display: flex;
+  perspective: 300px;
+}
+
+#animated-text span {
+  font-size: 100px;
+  line-height: 100px;
+  font-weight: bold;
+  color: blue;
+  transform-style: preserve-3d;
+  transform: rotateX(45deg) rotateY(45deg);
+  transition: transform 1s;
+}
+
+
+
+const text = document.getElementById("animated-text");
+
+text.addEventListener("mouseover", function() {
+  text.querySelectorAll("span").forEach(function(span) {
+    span.style.transform = "rotateX(0deg) rotateY(0deg)";
+  });
+});
+
+text.addEventListener("mouseout", function() {
+  text.querySelectorAll("span").forEach(function(span) {
+    span.style.transform = "rotateX(45deg) rotateY(45deg)";
+  });
+});
